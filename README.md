@@ -426,6 +426,12 @@ You can open firewall by opening 80,443,8080,8888,8008.
 
 ## Install Frontend
 
+### Clone frontend submodule
+
+Make sure you've cloned your pool frontend submodule, some git programs aren't configured to clone them by default
+
+    $ git submodule update --init --recursive
+
 ### Modify configuration file
 
     $ nano ~/open-eosc-pool/www/config/environment.js

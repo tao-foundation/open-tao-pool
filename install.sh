@@ -28,7 +28,7 @@ eosc version
 
 echo "Installing EOS Classic Pool Software"
 
-git clone https://github.com/eosclassic/open-eosc-pool
+git clone https://github.com/eosclassic/open-eosc-pool --recursive
 cd open-eosc-pool
 make all
 sudo cp build/bin/open-eosc-pool /usr/local/bin/open-eosc-pool
