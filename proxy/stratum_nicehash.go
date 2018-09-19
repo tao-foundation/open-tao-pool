@@ -7,13 +7,13 @@ import (
 	"io"
 	"log"
 	"net"
-	"time"
 	"strconv"
+	"time"
 
+	_ "github.com/davecgh/go-spew/spew"
 	"github.com/eosclassic/open-eosc-pool/util"
 	"math/rand"
 	"strings"
-	_"github.com/davecgh/go-spew/spew"
 )
 
 func (s *ProxyServer) ListenNiceHashTCP() {
@@ -206,7 +206,7 @@ func (cs *Session) handleNHTCPMessage(s *ProxyServer, req *StratumReq) error {
 		resp := JSONRpcRespNH{
 			Id:     req.Id,
 			Result: reply,
-			Error: false,
+			Error:  false,
 		}
 
 		// TEST, ein notify zu viel
@@ -247,10 +247,10 @@ func (cs *Session) getNotificationResponse(s *ProxyServer, id json.RawMessage) J
 	result[1] = cs.Extranonce
 
 	resp := JSONRpcRespNH{
-		Id:      id,
+		Id: id,
 		//Version: "EthereumStratum/1.0.0",
-		Result:  result,
-		Error:   nil,
+		Result: result,
+		Error:  nil,
 	}
 
 	return resp
@@ -301,7 +301,7 @@ func (cs *Session) sendJob(s *ProxyServer, id json.RawMessage) error {
 	}
 
 	cs.JobDetails = jobDetails{
-		JobID:      randomHex(8),
+		JobID: randomHex(8),
 		//JobID:      cs.JobDetails.JobID, // ??? test
 		SeedHash:   reply[1],
 		HeaderHash: reply[0],
@@ -309,10 +309,10 @@ func (cs *Session) sendJob(s *ProxyServer, id json.RawMessage) error {
 
 	// The NiceHash official .NET pool omits 0x...
 	// TO DO: clean up once everything works
-	if (cs.JobDetails.SeedHash[0:2] == "0x") {
+	if cs.JobDetails.SeedHash[0:2] == "0x" {
 		cs.JobDetails.SeedHash = cs.JobDetails.SeedHash[2:]
 	}
-	if (cs.JobDetails.HeaderHash[0:2] == "0x") {
+	if cs.JobDetails.HeaderHash[0:2] == "0x" {
 		cs.JobDetails.HeaderHash = cs.JobDetails.HeaderHash[2:]
 	}
 
@@ -345,7 +345,7 @@ func (s *ProxyServer) broadcastNewJobsNH() {
 	bcast := make(chan int, 1024)
 	n := 0
 
-	for m, _ := range s.sessions {
+	for m := range s.sessions {
 		n++
 		bcast <- n
 
@@ -358,10 +358,10 @@ func (s *ProxyServer) broadcastNewJobsNH() {
 
 			// The NiceHash official .NET pool omits 0x...
 			// TO DO: clean up once everything works
-			if (cs.JobDetails.SeedHash[0:2] == "0x") {
+			if cs.JobDetails.SeedHash[0:2] == "0x" {
 				cs.JobDetails.SeedHash = cs.JobDetails.SeedHash[2:]
 			}
-			if (cs.JobDetails.HeaderHash[0:2] == "0x") {
+			if cs.JobDetails.HeaderHash[0:2] == "0x" {
 				cs.JobDetails.HeaderHash = cs.JobDetails.HeaderHash[2:]
 			}
 

@@ -8,7 +8,7 @@ type JSONRpcReq struct {
 	Params json.RawMessage `json:"params"`
 }
 
-type JSONRpcReqNH struct  {
+type JSONRpcReqNH struct {
 	Method string      `json:"method"`
 	Params interface{} `json:"params"`
 	Id     interface{} `json:"id"`
@@ -35,9 +35,9 @@ type JSONRpcResp struct {
 }
 
 type JSONRpcRespNH struct {
-	Id      json.RawMessage `json:"id"`
-	Result  interface{}     `json:"result"`
-	Error   interface{}     `json:"error"`
+	Id     json.RawMessage `json:"id"`
+	Result interface{}     `json:"result"`
+	Error  interface{}     `json:"error"`
 }
 
 type SubmitReply struct {

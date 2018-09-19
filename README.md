@@ -46,7 +46,7 @@ This will cost about 40$ per month
 
 Dependencies:
 
-  * go >= 1.10
+  * go >= 1.11
   * redis-server >= 2.8.0
   * nodejs >= 8 LTS
   * nginx

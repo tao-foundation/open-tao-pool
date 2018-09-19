@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/wfr/ethash-nh"
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/wfr/ethash-nh"
 
 	"github.com/eosclassic/open-eosc-pool/util"
 )
