@@ -5,9 +5,9 @@ echo "Installing golang"
 export GO_VERSION=1.11
 export GO_DOWNLOAD_URL=https://storage.googleapis.com/golang/go$GO_VERSION.linux-amd64.tar.gz
 
-echo "export GOPATH=/usr/local/lib/go" >> /etc/profile
-echo "export GOROOT=/usr/local/go" >> /etc/profile
-echo "export PATH=$PATH:$GOROOT/bin:$GOPATH/bin" >> /etc/profile
+export GOPATH=/usr/local/lib/go
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 sudo mkdir ${GOPATH}
 sudo chown ${USER} -R ${GOPATH}
@@ -28,7 +28,7 @@ sudo apt-get -y install build-essential unzip redis-server nginx screen gcc g++ 
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
 curl https://sh.rustup.rs -sSf | sh -s -- -y
-echo "export PATH="$HOME/.cargo/bin:$PATH"" >> /etc/profile
+export PATH="$HOME/.cargo/bin:$PATH"
 
 echo "Checking go & node version"
 
