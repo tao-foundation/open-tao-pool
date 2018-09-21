@@ -37,14 +37,10 @@ node -v
 
 echo "Installing EOS Classic"
 
-git clone -b stable https://github.com/eosclassic/node-eosclassic
+git clone https://github.com/eosclassic/node-eosclassic
 cd node-eosclassic
-make eosc
-sudo cp build/bin/eosc /usr/local/bin/eosc
-
-echo "EOS Classic version"
-
-eosc version
+cargo build --release --features final
+sudo cp target/release/parity /usr/local/bin/parity
 
 echo "Installing EOS Classic Pool Software"
 

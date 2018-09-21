@@ -13,14 +13,10 @@ node -v
 
 echo "Upgrading EOS Classic"
 
-cd eosclassic
+cd node-eosclassic
 git pull
-make eosc
-sudo cp build/bin/eosc /usr/local/bin/eosc
-
-echo "EOS Classic version"
-
-eosc version
+cargo build --release --features final
+sudo cp target/release/parity /usr/local/bin/parity
 
 echo "Upgrading EOS Classic Pool Software"
 
