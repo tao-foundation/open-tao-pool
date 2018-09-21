@@ -9,6 +9,8 @@
 
 **This pool is being further developed to provide an easy to use pool for EOS Classic miners. Testing and bug submissions are welcome!**
 
+**Parity client is MANDATORY. Previous Geth / EOSC node is no longer supported.**
+
 * Support for HTTP and Stratum mining
 * Detailed block stats with luck percentage and full reward
 * Failover eosc instances: eosc high availability built in
@@ -52,7 +54,7 @@ Dependencies:
   * redis-server >= 2.8.0
   * nodejs >= 8 LTS
   * nginx
-  * eosc
+  * parity-eosclassic
 
 **I highly recommend to use Ubuntu 16.04 LTS.**
 
@@ -82,7 +84,7 @@ Description=EOS Classic for Pool
 After=network-online.target
 
 [Service]
-ExecStart=/usr/local/bin/eosc --rpc --mine --extradata "Mined by <your-pool-domain>" --ethstats "<your-pool-domain>:EOSClassic@stats.eos-classic.io"
+ExecStart=/usr/local/bin/parity --rpc --mine --extradata "Mined by <your-pool-domain>" --ethstats "<your-pool-domain>:EOSClassic@stats.eos-classic.io"
 User=<your-user-name>
 
 [Install]
