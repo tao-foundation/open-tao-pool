@@ -70,6 +70,12 @@ Upgrade required packages & EOS Classic Pool by the following command
 
     $ curl -sL https://raw.githubusercontent.com/eosclassic/open-eosc-pool/master/upgrade.sh | sudo -E bash -    
 
+Please backup your pool before upgrading!
+
+### Clone open-eosc-pool repository
+
+    $ git clone https://github.com/eosclassic/open-eosc-pool --recursive
+
 ### Set up eosc
 
 If you use Ubuntu, it is easier to control services by using systemctl.
