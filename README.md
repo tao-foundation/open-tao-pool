@@ -1,7 +1,9 @@
 ## Open Source EOS Classic (EOSC) Mining Pool
 
 [![Build Status](https://travis-ci.org/eosclassic/open-eosc-pool.svg?branch=master)](https://travis-ci.org/eosclassic/open-eosc-pool)
+[![Build status](https://ci.appveyor.com/api/projects/status/ydvdrc0jb644h565/branch/master?svg=true)](https://ci.appveyor.com/project/eosclassicteam/open-eosc-pool/branch/master)
 [![Go Report Card](https://goreportcard.com/badge/github.com/eosclassic/open-eosc-pool)](https://goreportcard.com/report/github.com/eosclassic/open-eosc-pool)
+[![Discord](https://img.shields.io/badge/discord-join%20chat-blue.svg)](https://discord.gg/EEzNEEu)
 
 ### Features  
 
