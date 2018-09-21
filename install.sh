@@ -9,15 +9,15 @@ export GOPATH=/usr/local/lib/go
 export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
-sudo mkdir ${GOPATH}
-sudo chown ${USER} -R ${GOPATH}
+sudo mkdir $GOPATH
+sudo chown $USER -R $GOPATH
 
 sudo apt update --fix-missing && apt upgrade -y
 sudo apt install --no-install-recommends -y gcc
 
 wget "$GO_DOWNLOAD_URL" -O golang.tar.gz
 tar -zxvf golang.tar.gz
-sudo mv go ${GOROOT}
+sudo mv go $GOROOT
 
 echo "Installing required packages"
 
