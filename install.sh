@@ -37,18 +37,19 @@ node -v
 
 echo "Installing EOS Classic"
 
-git clone https://github.com/eosclassic/node-eosclassic
-cd node-eosclassic
+mkdir .eosc-temp
+git clone https://github.com/eosclassic/node-eosclassic .eosc-temp/node-eosclassic
+cd .eosc-temp/node-eosclassic
 cargo build --release --features final
 sudo cp target/release/parity /usr/local/bin/parity
-cd .. && sudo rm -r node-eosclassic
+cd ../.. && sudo rm -r .eosc-temp/node-eosclassic
 
 echo "Installing EOS Classic Pool Software"
 
-git clone https://github.com/eosclassic/open-eosc-pool --recursive
-cd open-eosc-pool
+git clone https://github.com/eosclassic/open-eosc-pool .eosc-temp/open-eosc-pool --recursive
+cd .eosc-temp/open-eosc-pool
 make all
 sudo cp build/bin/open-eosc-pool /usr/local/bin/open-eosc-pool
-cd .. && sudo rm -r open-eosc-pool
+cd ../.. && sudo rm -r .eosc-temp/open-eosc-pool
 
 echo "Done installing EOS Classic & EOS Classic Pool Software!, Please configure your pool with the following instructions on https://github.com/eosclassic/open-eosc-pool/blob/master/README.md"
