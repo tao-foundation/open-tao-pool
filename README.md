@@ -90,7 +90,7 @@ Description=EOS Classic for Pool
 After=network-online.target
 
 [Service]
-ExecStart=/usr/local/bin/parity --rpc --mine --extradata "Mined by <your-pool-domain>" --ethstats "<your-pool-domain>:EOSClassic@stats.eos-classic.io"
+ExecStart=/usr/local/bin/parity --chain=eosc --no-warp --author="<your-pool-account>" --unlock="<your-pool-account>" --password="<your-pool-account-password-in-txt>" --extradata "Mined by <your-pool-domain>"
 User=<your-user-name>
 
 [Install]
