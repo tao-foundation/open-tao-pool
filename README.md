@@ -157,7 +157,10 @@ Set up based on commands below.
       // Bind stratum mining socket to this IP:PORT
       "listen": "0.0.0.0:8008",
       "timeout": "120s",
-      "maxConn": 8192
+      "maxConn": 8192,
+      "tls": false,
+      "certFile": "/path/to/cert.pem",
+      "keyFile": "/path/to/key.pem"
     },
 
     // Nicehash mining endpoint
