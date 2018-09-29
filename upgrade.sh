@@ -13,6 +13,7 @@ node -v
 
 echo "Upgrading EOS Classic"
 
+cd .eosc-temp
 git clone https://github.com/eosclassic/node-eosclassic
 cd node-eosclassic
 git pull
