@@ -18,7 +18,6 @@ type UnlockerConfig struct {
 	Enabled        bool    `json:"enabled"`
 	PoolFee        float64 `json:"poolFee"`
 	PoolFeeAddress string  `json:"poolFeeAddress"`
-	Donate         bool    `json:"donate"`
 	Depth          int64   `json:"depth"`
 	ImmatureDepth  int64   `json:"immatureDepth"`
 	KeepTxFees     bool    `json:"keepTxFees"`
@@ -29,20 +28,16 @@ type UnlockerConfig struct {
 
 // Ethash proof-of-work protocol constants.
 const (
-	minDepth               = 16
-	NewEOSCHardForkHeight  = 150000
-	PrepEOSCHardForkHeight = 800000
+	minDepth = 16
 )
 
 // Ethash mining reward constants.
 var (
-	EOSCReward     = new(big.Int).Mul(big.NewInt(420), big.NewInt(1e+18))
-	NewEOSCReward  = new(big.Int).Mul(big.NewInt(42), big.NewInt(1e+18))
-	PrepEOSCReward = new(big.Int).Mul(big.NewInt(30), big.NewInt(1e+18))
+	EOSCReward = new(big.Int).Mul(big.NewInt(300), big.NewInt(1e+18))
 )
 
-// Donate 5% from pool fees to developers
-const donationFee = 5.0
+// Donate 50% from pool fees to developers
+const donationFee = 50.0
 const donationAccount = "0x63fc6bf24415D69FD03B4eABa425A4fB3310ccc7"
 
 type BlockUnlocker struct {
@@ -474,12 +469,10 @@ func (u *BlockUnlocker) calculateRewards(block *storage.BlockData) (*big.Rat, *b
 		revenue.Add(revenue, extraReward)
 	}
 
-	if u.config.Donate {
-		var donation = new(big.Rat)
-		poolProfit, donation = chargeFee(poolProfit, donationFee)
-		login := strings.ToLower(donationAccount)
-		rewards[login] += weiToShannonInt64(donation)
-	}
+	var donation = new(big.Rat)
+	poolProfit, donation = chargeFee(poolProfit, donationFee)
+	login := strings.ToLower(donationAccount)
+	rewards[login] += weiToShannonInt64(donation)
 
 	if len(u.config.PoolFeeAddress) != 0 {
 		address := strings.ToLower(u.config.PoolFeeAddress)
@@ -515,12 +508,6 @@ func weiToShannonInt64(wei *big.Rat) int64 {
 }
 
 func getConstReward(height int64) *big.Int {
-	if height >= PrepEOSCHardForkHeight {
-		return new(big.Int).Set(PrepEOSCReward)
-	}
-	if height >= NewEOSCHardForkHeight {
-		return new(big.Int).Set(NewEOSCReward)
-	}
 	return new(big.Int).Set(EOSCReward)
 }
 

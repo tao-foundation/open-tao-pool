@@ -24,7 +24,6 @@
 		"enabled": true,
 		"poolFee": 1.0,
 		"poolFeeAddress": "",
-		"donate": true,
 		"depth": 120,
 		"immatureDepth": 20,
 		"keepTxFees": false,

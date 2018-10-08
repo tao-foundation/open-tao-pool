@@ -287,8 +287,6 @@ Set up based on commands below.
     "poolFee": 1.0,
     // the address is for pool fee. Personal wallet is recommended to prevent from server hacking.
     "poolFeeAddress": "",
-    // Amount of donation to eos classic development fund. 5 percent of pool fee is donated to eos classic development fund now. If pool fee is 1 percent, 0.05 percent which is 5 percent of pool fee should be donated to eos classic development fund.
-    "donate": true,
     // Unlock only if this number of blocks mined back
     "depth": 120,
     // Simply don't touch this option
