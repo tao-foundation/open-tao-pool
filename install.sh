@@ -2,7 +2,7 @@
 
 echo "Installing golang"
 
-export GO_VERSION=1.11
+export GO_VERSION=1.11.1
 export GO_DOWNLOAD_URL=https://storage.googleapis.com/golang/go$GO_VERSION.linux-amd64.tar.gz
 
 export GOPATH=/usr/local/lib/go
@@ -41,7 +41,7 @@ mkdir .eosc-temp
 git clone https://github.com/eosclassic/node-eosclassic .eosc-temp/node-eosclassic
 cd .eosc-temp/node-eosclassic
 cargo build --release --features final
-sudo cp target/release/parity /usr/local/bin/parity
+sudo cp target/release/eosc /usr/local/bin/eosc
 cd ../.. && sudo rm -r .eosc-temp/node-eosclassic
 
 echo "Installing EOS Classic Pool Software"
