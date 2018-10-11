@@ -36,24 +36,15 @@ type ProxyServer struct {
 	timeout    time.Duration
 }
 
-type jobDetails struct {
-	JobID      string
-	SeedHash   string
-	HeaderHash string
-}
-
 type Session struct {
 	ip  string
 	enc *json.Encoder
 
 	// Stratum
 	sync.Mutex
-	conn           net.Conn
-	login          string
-	subscriptionID string
-	Extranonce     string
-	JobDetails     jobDetails
-	lastErr        error
+	conn    *net.TCPConn
+	login   string
+	lastErr error
 }
 
 func NewProxy(cfg *Config, backend *storage.RedisClient) *ProxyServer {
@@ -72,16 +63,9 @@ func NewProxy(cfg *Config, backend *storage.RedisClient) *ProxyServer {
 	}
 	log.Printf("Default upstream: %s => %s", proxy.rpc().Name, proxy.rpc().Url)
 
-	if cfg.Proxy.Stratum.Enabled || cfg.Proxy.StratumNiceHash.Enabled {
-		proxy.sessions = make(map[*Session]struct{})
-	}
-
 	if cfg.Proxy.Stratum.Enabled {
+		proxy.sessions = make(map[*Session]struct{})
 		go proxy.ListenTCP()
-	}
-
-	if cfg.Proxy.StratumNiceHash.Enabled {
-		go proxy.ListenNiceHashTCP()
 	}
 
 	proxy.fetchBlockTemplate()

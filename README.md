@@ -16,7 +16,6 @@
 * JSON-API for stats
 * PPLNS block reward
 * Multi-tx payout at once
-* Native Nicehash Stratum proxy support
 
 ### Building on Linux
 
