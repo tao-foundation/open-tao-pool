@@ -1,30 +1,11 @@
 #!/bin/sh
 
-echo "Installing golang"
-
-export GO_VERSION=1.11.1
-export GO_DOWNLOAD_URL=https://storage.googleapis.com/golang/go$GO_VERSION.linux-amd64.tar.gz
-
-export GOPATH=/usr/local/lib/go
-export GOROOT=/usr/local/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-
-sudo mkdir $GOPATH
-sudo chown $USER -R $GOPATH
-
-sudo apt update --fix-missing && apt upgrade -y
-sudo apt install --no-install-recommends -y gcc
-
-wget "$GO_DOWNLOAD_URL" -O golang.tar.gz
-tar -zxvf golang.tar.gz
-sudo mv go $GOROOT
-
 echo "Installing required packages"
 
 sudo apt-get update
 sudo apt-get -y upgrade
 sudo apt-get -y dist-upgrade
-sudo apt-get -y install build-essential unzip redis-server nginx screen gcc g++ libudev-dev pkg-config file make cmake
+sudo apt-get -y install build-essential libudev-dev file cmake golang-1.10-go unzip
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
 curl https://sh.rustup.rs -sSf | sh -s -- -y
@@ -34,6 +15,7 @@ echo "Checking go & node version"
 
 go version
 node -v
+rustc --version
 
 echo "Installing EOS Classic"
 

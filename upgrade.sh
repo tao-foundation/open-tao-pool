@@ -14,8 +14,8 @@ node -v
 echo "Upgrading EOS Classic"
 
 cd .eosc-temp
-git clone https://github.com/eosclassic/node-eosclassic
-cd node-eosclassic
+git clone https://github.com/eosclassic/node-eosc
+cd node-eosc
 git pull
 cargo build --release --features final
 sudo cp target/release/eosc /usr/local/bin/eosc
