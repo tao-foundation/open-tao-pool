@@ -5,7 +5,7 @@ echo "Installing required packages"
 sudo apt-get update
 sudo apt-get -y upgrade
 sudo apt-get -y dist-upgrade
-sudo apt-get -y install build-essential libudev-dev file cmake golang-1.10-go unzip
+sudo apt-get -y install build-essential libudev-dev file cmake golang-1.10-go unzip redis-server nginx
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
 curl https://sh.rustup.rs -sSf | sh -s -- -y
