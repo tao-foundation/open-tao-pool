@@ -19,7 +19,7 @@ Request looks like:
   "id": 1,
   "jsonrpc": "2.0",
   "method": "eth_submitLogin",
-  "params": ["0x63fc6bf24415D69FD03B4eABa425A4fB3310ccc7"]
+  "params": ["0xeB3EfeC9a30892a1b67a4A7E72AFcE55138cD2cF"]
 }
 ```
 
@@ -30,7 +30,7 @@ Request can include additional 2nd param (email for example):
   "id": 1,
   "jsonrpc": "2.0",
   "method": "eth_submitLogin",
-  "params": ["0x63fc6bf24415D69FD03B4eABa425A4fB3310ccc7", "admin@example.net"]
+  "params": ["0xeB3EfeC9a30892a1b67a4A7E72AFcE55138cD2cF", "admin@example.net"]
 }
 ```
 
