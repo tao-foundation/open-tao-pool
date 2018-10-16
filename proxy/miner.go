@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/ethereum/ethash"
+	"github.com/tao-foundation/tethashv1"
 	"github.com/tao-foundation/tethashv1-geth/common"
 )
 
