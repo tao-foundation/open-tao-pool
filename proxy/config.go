@@ -1,10 +1,10 @@
 package proxy
 
 import (
-	"github.com/eosclassic/open-eosc-pool/api"
-	"github.com/eosclassic/open-eosc-pool/payouts"
-	"github.com/eosclassic/open-eosc-pool/policy"
-	"github.com/eosclassic/open-eosc-pool/storage"
+	"github.com/tao-foundation/open-tao-pool/api"
+	"github.com/tao-foundation/open-tao-pool/payouts"
+	"github.com/tao-foundation/open-tao-pool/policy"
+	"github.com/tao-foundation/open-tao-pool/storage"
 )
 
 type Config struct {

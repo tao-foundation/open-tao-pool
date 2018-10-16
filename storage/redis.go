@@ -10,7 +10,7 @@ import (
 
 	"gopkg.in/redis.v3"
 
-	"github.com/eosclassic/open-eosc-pool/util"
+	"github.com/tao-foundation/open-tao-pool/util"
 )
 
 type Config struct {

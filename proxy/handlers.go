@@ -6,8 +6,8 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/eosclassic/open-eosc-pool/rpc"
-	"github.com/eosclassic/open-eosc-pool/util"
+	"github.com/tao-foundation/open-tao-pool/rpc"
+	"github.com/tao-foundation/open-tao-pool/util"
 )
 
 // Allow only lowercase hexadecimal with 0x prefix

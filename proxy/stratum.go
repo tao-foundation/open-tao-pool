@@ -10,7 +10,7 @@ import (
 	"net"
 	"time"
 
-	"github.com/eosclassic/open-eosc-pool/util"
+	"github.com/tao-foundation/open-tao-pool/util"
 )
 
 const (

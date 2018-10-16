@@ -9,8 +9,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/eosclassic/open-eosc-pool/storage"
-	"github.com/eosclassic/open-eosc-pool/util"
+	"github.com/tao-foundation/open-tao-pool/storage"
+	"github.com/tao-foundation/open-tao-pool/util"
 )
 
 type Config struct {

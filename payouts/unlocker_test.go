@@ -5,8 +5,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/eosclassic/open-eosc-pool/rpc"
-	"github.com/eosclassic/open-eosc-pool/storage"
+	"github.com/tao-foundation/open-tao-pool/rpc"
+	"github.com/tao-foundation/open-tao-pool/storage"
 )
 
 func TestMain(m *testing.M) {

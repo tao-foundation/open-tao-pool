@@ -7,10 +7,10 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/tao-foundation/tethashv1-geth/common"
 
-	"github.com/eosclassic/open-eosc-pool/rpc"
-	"github.com/eosclassic/open-eosc-pool/util"
+	"github.com/tao-foundation/open-tao-pool/rpc"
+	"github.com/tao-foundation/open-tao-pool/util"
 )
 
 const maxBacklog = 3

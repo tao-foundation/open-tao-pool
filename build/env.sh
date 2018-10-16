@@ -10,11 +10,11 @@ fi
 # Create fake Go workspace if it doesn't exist yet.
 workspace="$PWD/build/_workspace"
 root="$PWD"
-ethdir="$workspace/src/github.com/eosclassic"
-if [ ! -L "$ethdir/open-eosc-pool" ]; then
+ethdir="$workspace/src/github.com/tao-foundation"
+if [ ! -L "$ethdir/open-tao-pool" ]; then
     mkdir -p "$ethdir"
     cd "$ethdir"
-    ln -s ../../../../../. open-eosc-pool
+    ln -s ../../../../../. open-tao-pool
     cd "$root"
 fi
 
@@ -25,8 +25,8 @@ GOBIN="$PWD/build/bin"
 export GOPATH GOBIN
 
 # Run the command inside the workspace.
-cd "$ethdir/open-eosc-pool"
-PWD="$ethdir/open-eosc-pool"
+cd "$ethdir/open-tao-pool"
+PWD="$ethdir/open-tao-pool"
 
 # Launch the arguments with the configured environment.
 exec "$@"
