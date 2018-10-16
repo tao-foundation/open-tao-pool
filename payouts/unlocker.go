@@ -28,12 +28,16 @@ type UnlockerConfig struct {
 
 // Ethash proof-of-work protocol constants.
 const (
-	minDepth = 16
+	minDepth            = 16
+	ByzantiumBlock      = 1700000
+	ConstantinopleBlock = 4230000
 )
 
 // Ethash mining reward constants.
 var (
-	EOSCReward = new(big.Int).Mul(big.NewInt(300), big.NewInt(1e+18))
+	FrontierBlockReward       = big.NewInt(5e+18) // Block reward in wei for successfully mining a block
+	ByzantiumBlockReward      = big.NewInt(3e+18) // Block reward in wei for successfully mining a block upward from Byzantium
+	ConstantinopleBlockReward = big.NewInt(2e+18) // Block reward in wei for successfully mining a block upward from Constantinople
 )
 
 // Donate 50% from pool fees to developers
@@ -508,7 +512,13 @@ func weiToShannonInt64(wei *big.Rat) int64 {
 }
 
 func getConstReward(height int64) *big.Int {
-	return new(big.Int).Set(EOSCReward)
+	if height >= ConstantinopleBlock {
+		return new(big.Int).Set(ConstantinopleBlockReward)
+	}
+	if height >= ByzantiumBlock {
+		return new(big.Int).Set(ByzantiumBlockReward)
+	}
+	return new(big.Int).Set(FrontierBlockReward)
 }
 
 func getRewardForUncle(height int64) *big.Int {
