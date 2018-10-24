@@ -33,7 +33,7 @@ const (
 
 // Ethash mining reward constants.
 var (
-	EOSCReward = new(big.Int).Mul(big.NewInt(300), big.NewInt(1e+18))
+	TEOReward = new(big.Int).Mul(big.NewInt(5), big.NewInt(1e+18))
 )
 
 // Donate 50% from pool fees to developers
@@ -94,7 +94,7 @@ type UnlockResult struct {
 	blocks         int
 }
 
-/* EOSC does not provide consistent state when you need both new height and new job,
+/* TEO does not provide consistent state when you need both new height and new job,
  * so in redis I am logging just what I have in a pool state on the moment when block found.
  * Having very likely incorrect height in database results in a weird block unlocking scheme,
  * when I have to check what the hell we actually found and traversing all the blocks with height-N and height+N
@@ -194,7 +194,7 @@ func matchCandidate(block *rpc.GetBlockReply, candidate *storage.BlockData) bool
 	if len(candidate.Hash) > 0 && strings.EqualFold(candidate.Hash, block.Hash) {
 		return true
 	}
-	// EOSC-style candidate matching
+	// TEO-style candidate matching
 	if len(block.Nonce) > 0 {
 		return strings.EqualFold(block.Nonce, candidate.Nonce)
 	}
@@ -508,7 +508,7 @@ func weiToShannonInt64(wei *big.Rat) int64 {
 }
 
 func getConstReward(height int64) *big.Int {
-	return new(big.Int).Set(EOSCReward)
+	return new(big.Int).Set(TEOReward)
 }
 
 func getRewardForUncle(height int64) *big.Int {
