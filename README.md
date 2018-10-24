@@ -33,7 +33,15 @@ Clone & compile:
 
 ### Running Pool & Building Frontend
 
-FrontEnd Code will be updated 
+FrontEnd Code is on WWW
+
+```
+npm install
+bower install
+./build.sh
+```
+
+
 ### Credits
 
 Made by sammy007. Licensed under GPLv3.
